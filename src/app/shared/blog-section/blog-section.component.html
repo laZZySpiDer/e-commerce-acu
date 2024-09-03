@@ -1,1 +1,59 @@
-<p>blog-section works!</p>
+<section class="section blog" id="blog" aria-label="blog">
+    <div class="container">
+
+      <div class="title-wrapper">
+        <h2 class="h2 section-title">Explore our blog</h2>
+
+        <a href="#" class="btn-link">
+          <span class="span">View All</span>
+
+          <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+        </a>
+      </div>
+
+      <ul class="grid-list">
+
+        <li *ngFor="let singleBlog of blogList">
+          <div class="blog-card">
+
+            <div class="card-banner img-holder" style="--width: 374; --height: 243;">
+              <img src="{{singleBlog.blogImageLink}}" width="374" height="243" loading="lazy"
+                alt="{{singleBlog.blogTitle}}" class="img-cover">
+
+              <a href="{{singleBlog.blogLink}}" class="card-btn">
+                <span class="span">Read more</span>
+
+                <ion-icon name="add-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </div>
+
+            <div class="card-content">
+
+              <h3 class="h3">
+                <a href="#" class="card-title">{{singleBlog.blogTitle}}</a>
+              </h3>
+
+              <ul class="card-meta-list">
+
+                <li class="card-meta-item">
+                  <time class="card-meta-text">{{singleBlog.blogPublishedDate}}</time>
+                </li>
+
+                <li class="card-meta-item">
+                  <a href="#" class="card-meta-text">{{singleBlog.blogPublishedBy}}</a>
+                </li>
+
+                <li class="card-meta-item">
+                  in <a href="#" class="card-meta-text">{{singleBlog.blogCategory}}</a>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </section>

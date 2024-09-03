@@ -1,2 +1,13 @@
 <app-header></app-header>
+
 <app-home></app-home>
+
+<a
+  href="#top"
+  class="back-top-btn"
+  [ngClass]="{ active: showScrollToTop }"
+  aria-label="back to top"
+  data-back-top-btn
+>
+  <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+</a>

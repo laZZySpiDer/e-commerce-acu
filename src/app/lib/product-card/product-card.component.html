@@ -1,0 +1,55 @@
+<div class="product-card">
+
+    <a href="#" class="card-banner img-holder has-before" style="--width: 300; --height: 300;">
+      <img src="{{product.productImage}}" width="300" height="300" loading="lazy"
+        alt="{{product.productName}}" class="img-cover">
+
+      <ul class="card-action-list">
+
+        <li>
+          <button class="card-action-btn" aria-label="add to cart" title="add to cart">
+            <ion-icon name="add-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </li>
+
+        <li>
+          <button class="card-action-btn" aria-label="add to cart" title="add to cart">
+            <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </li>
+
+        <li>
+          <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
+            <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </li>
+
+      </ul>
+
+      <div *ngIf="!product.inStock" class="card-badge">Out of Stock</div>
+      <ul class="badge-list" *ngIf="product.productOnSale">
+
+        <li>
+          <div class="badge orange">Sale</div>
+        </li>
+
+        <li>
+          <div class="badge cyan">-{{product.salePercentage}} %</div>
+        </li>
+
+      </ul>
+    </a>
+
+    <div class="card-content">
+      <h3 class="h3">
+        <a href="#" class="card-title">{{product.productName}}</a>
+      </h3>
+
+      <div class="card-price">
+        <del *ngIf="product.productOnSale" class="del"> $ {{product.originalPrice | currency}}</del>
+
+        <data class="price">$ {{product.productOnSale ? product.discountedPrice :product.originalPrice | currency}}</data>
+      </div>
+    </div>
+
+  </div>

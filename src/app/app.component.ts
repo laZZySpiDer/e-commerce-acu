@@ -19,10 +19,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent{
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    console.log('Window', this.window.scrollY);
     if (this.window.scrollY > 100) {
       this.showScrollToTop = true;
     } else {
@@ -32,7 +31,4 @@ export class AppComponent implements OnInit {
   constructor(@Inject(WINDOW) private window: Window) {}
   title = 'e-commerce-acu';
   showScrollToTop: boolean = false;
-  ngOnInit() {
-    console.log('Window', this.window.screenY);
-  }
 }

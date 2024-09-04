@@ -29,61 +29,7 @@
       <ul class="grid-list product-list" data-filter="all">
 
         <li *ngFor="let productItem of productList" class="{{productItem.category}}">
-          <div class="product-card">
-
-            <a href="#" class="card-banner img-holder has-before" style="--width: 300; --height: 300;">
-              <img src="{{productItem.productImage}}" width="300" height="300" loading="lazy"
-                alt="{{productItem.productName}}" class="img-cover">
-
-              <ul class="card-action-list">
-
-                <li>
-                  <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                    <ion-icon name="add-outline" aria-hidden="true"></ion-icon>
-                  </button>
-                </li>
-
-                <li>
-                  <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                    <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                  </button>
-                </li>
-
-                <li>
-                  <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                    <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                  </button>
-                </li>
-
-              </ul>
-
-              <div *ngIf="!productItem.inStock" class="card-badge">Out of Stock</div>
-              <ul class="badge-list" *ngIf="productItem.productOnSale">
-
-                <li>
-                  <div class="badge orange">Sale</div>
-                </li>
-
-                <li>
-                  <div class="badge cyan">-{{productItem.salePercentage}}</div>
-                </li>
-
-              </ul>
-            </a>
-
-            <div class="card-content">
-              <h3 class="h3">
-                <a href="#" class="card-title">{{productItem.productName}}</a>
-              </h3>
-
-              <div class="card-price">
-                <del *ngIf="productItem.productOnSale" class="del">{{productItem.originalPrice}}</del>
-
-                <data class="price">{{productItem.productOnSale ? productItem.discountedPrice:productItem.originalPrice}}</data>
-              </div>
-            </div>
-
-          </div>
+          <app-product-card [product]="productItem"></app-product-card>
         </li>
 
       </ul>
